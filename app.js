@@ -83,7 +83,7 @@ app.listen(3000);
   * Sovellusta varten tarvitsin express.js:ää, body-parseria, moogoose ja path:ia. Tehtävänannon mukaisesti routerit,
   * controllerit, modelsit, viewsit on jaettu omiin kansioihinsa ja tiketeillä ja tiedotteilla on omat controllerit ja modelsit.
   * 
-  * SOvelluksessa on useita pug-templateja ja pääsin harjoittelemaan html:n käyttöä näissä. Se tuntui haastavalta, koska asettelu
+  * Sovelluksessa on useita pug-templateja ja pääsin harjoittelemaan html:n käyttöä näissä. Se tuntui haastavalta, koska asettelu
   * oli niin tarkkaa, mutta harjoituksen edetessä se alkoi jo sujua. Laitoin templateihin myös omaa css:ää ja onnistui css-tiedostolle
   * luomaan oman pathin ja routen static/css -kansioon. Käytin pathia myös index.html:n käytössä sivulla, mutta se ei oikein toiminut
   * ainakaan oman css:n kanssa (ei asettunut kunnolla). Ei vaikuta hyvältä ratkaisulta.
