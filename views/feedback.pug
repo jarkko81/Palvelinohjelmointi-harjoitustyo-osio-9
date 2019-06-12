@@ -1,14 +1,17 @@
-// TIKETTISOVELLUKSEN KAUTTA LÄHETETYT PALAUTTEET
+// TIETOKANTAAN TALLETETUT TIKETIT NÄYTETÄÄN TÄLLÄ SIVULLA
 
 doctype html
 html
     head
-        title='Palvelinohjelmointi - Osio 6 - Tiketit'
+        title='Palvelinohjelmointi - Osio 9 - Tiketit'
         link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
         // Oma CSS linkitetty harjoitukseen:
         link(rel='stylesheet', href='../styles.css') 
+
     body.container
+
         div(id='menu')
+
             // Logo liitetty navigaatioon
             img(src='../static/images/lappari.jpg')
             p='Ylläpito'
@@ -54,21 +57,5 @@ html
                 a(href='/kommentoi/' + feedback._id) Näytä kaikki tiedot
                 br
                 a(href='/poista/' + feedback._id) Poista
-
-                //div(id='tiedot')
-                //=feedback.name 
-                //=feedback.email 
-                //=feedback.title 
-                //=feedback.message 
-                //=feedback.comment 
-                //=feedback.status 
-                //=feedback.staff 
-                //=feedback.date_added
-                //a(href='/kommentoi/' + feedback._id) Kommentoi tikettiä |
-                //br
-                //a(href='/poista/' + feedback._id)  Poista tiketti
-            //br
-            //a(href='/kommentoi/' + feedback._id) Kommentoi tikettiä |
-            //a(href='/poista/' + feedback._id)  Poista tiketti
         
         a(href='/')  Etusivulle

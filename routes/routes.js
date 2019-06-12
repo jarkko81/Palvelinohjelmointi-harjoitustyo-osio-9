@@ -1,12 +1,12 @@
-// PALAUTELOMAKE-SOVELLUKSEN ROUTER
+// SOVELLUKSEN ROUTER: TIKETIT JA TIEDOTTEET
 
+// Määritellään express, body-parser, path, express-session, mongoose ja luodaan yhteys controller-tiedostoihin
 const express = require('express');
 const router = express.Router();
 const session = require('express-session');
-const path = require('path'); // Otetaan path-moduuli käyttöön
+const path = require('path');
 const feedbackController = require('../controllers/feedbackController.js'); // Tikettien controller-tiedosto
 const bulletinController = require('../controllers/bulletinController.js'); // Tiedotteiden controller-tiedosto
-//const login1Controller = require('../controllers/login1.js'); // Controller-tiedosto
 
 /* Sovelluksen routet */
 
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     console.log(req.url);
 });
 
-// Lomakkeen tietojen lähetys tuotteiden lisäyssivulta
+// Lomakkeen tietojen lähetys tikettien lisäyssivulta
 router.post('/', (req, res) =>{ 
     feedbackController.sendNewFeedback(req, res);
     console.log(req.url);
@@ -41,107 +41,58 @@ router.get('/yhteystiedot', function (req, res) {
     console.log(req.url);
     })
 
-// Sivu, jolla näytetään tietokantaan tallennetut puhelimet
+// Sivu, jolla näytetään tietokantaan tallennetut tiketit
 router.get('/palautteet', (req, res) =>{
     feedbackController.showAllFeedback(req, res);
     console.log(req.url);
 });
 
-/*
-// Muokkauslomake, jolla voidaan muokata puhelimen tietoja yksilöllisen id:n avulla
-router.get('/vastaa/:feedbackId', (req, res) => {
-    feedbackController.getReplyPage(req, res);
-});
-
-// Yksittäisen puhelimen muokkauksen lähetys lomakkeelta yksilöllisen id:n avulla
-router.post('/vastaa/:feedbackId', (req,res) => {
-   feedbackController.replyToFeedback(req,res);
-}); */
-
-// Muokkauslomake, jolla voidaan muokata puhelimen tietoja yksilöllisen id:n avulla
+// Muokkauslomake, jolla voidaan muokata tiketin tietoja yksilöllisen id:n avulla
 router.get('/kommentoi/:feedbackId', (req, res) => {
     feedbackController.getCommentPage(req, res);
 });
 
-// Yksittäisen puhelimen muokkauksen lähetys lomakkeelta yksilöllisen id:n avulla
+// Yksittäisen tiketin muokkauksen lähetys lomakkeelta yksilöllisen id:n avulla
 router.post('/kommentoi/:feedbackId', (req,res) => {
    feedbackController.commentToFeedback(req,res);
 });
 
-// Poistetaan lomake tietokannasta yksilöllisen id:n avulla
+// Poistetaan tiketti tietokannasta yksilöllisen id:n avulla
 router.get('/poista/:feedbackId', (req, res) =>{  // Kun linkin kautta tehdään pyyntö, se tehdään aina get-metodin avulla.
     feedbackController.removeFeedbackItem(req, res);
 });
 
+// Get-metodilla luodaan sivu tiedotteiden luomissivulle
 router.get('/luotiedote', (req, res) => {
     bulletinController.getBulletinPage(req, res);
     console.log(req.url);
 });
 
-// Sivu, jolla näytetään tietokantaan tallennetut puhelimet
+// Luodaan uusi tiedote tietokantaan
 router.post('/luotiedote', (req, res) =>{
     bulletinController.createNewBulletin(req, res);
     console.log(req.url);
 });
 
-// Sivu, jolla näytetään tietokantaan tallennetut puhelimet
+// Sivu, jolla näytetään tietokantaan tallennetut tiedotteet
 router.get('/tiedotteet', (req, res) =>{
     bulletinController.showAllBulletins(req, res);
     console.log(req.url);
 });
 
-// Muokkauslomake, jolla voidaan muokata puhelimen tietoja yksilöllisen id:n avulla
+// Muokkauslomake, jolla voidaan muokata tiedotteen tietoja yksilöllisen id:n avulla
 router.get('/muokkaa/:bulletinId', (req, res) => {
     bulletinController.getModifyPage(req, res);
 });
 
-// Yksittäisen puhelimen muokkauksen lähetys lomakkeelta yksilöllisen id:n avulla
+// Yksittäisen tiedotteen muokkauksen lähetys lomakkeelta yksilöllisen id:n avulla
 router.post('/muokkaa/:bulletinId', (req,res) => {
    bulletinController.modifyToBulletin(req,res);
 });
 
-// Poistetaan lomake tietokannasta yksilöllisen id:n avulla
+// Poistetaan tiedote tietokannasta yksilöllisen id:n avulla
 router.get('/poisto/:bulletinId', (req, res) =>{  // Kun linkin kautta tehdään pyyntö, se tehdään aina get-metodin avulla.
     bulletinController.removeBulletinItem(req, res);
 });
-
-
-/*
-// Poistetaan lomake tietokannasta yksilöllisen id:n avulla
-router.get('/haku/tiketit', (req, res) =>{  // Kun linkin kautta tehdään pyyntö, se tehdään aina get-metodin avulla.
-    feedbackController.makeTicketSearch(req, res);
-});
-
-router.post('/auth/search', function(req,res){
-    feedbackController.searchFromDatabase(req, res);
-}); */
-
-
-/*
-// Sivu, jolla näytetään tietokantaan tallennetut puhelimet
-router.get('/kirjaudu', (req, res) =>{
-    //res.sendFile(path.join(__dirname, '../static', 'index.html'));
-    loginController.getLoginPage(req,res);
-    console.log(req.url);
-});
-
-// Lomakkeen tietojen lähetys tuotteiden lisäyssivulta
-router.post('/kirjaudu', (req, res) =>{ 
-    loginController.sendLoginInformation(req, res);
-    console.log(req.url);
-});*/
-
-
-
-
-
-// Sivu, jolla näytetään tietokantaan tallennetut puhelimet
-/*router.get('/loginfailed', (req, res) =>{
-    //res.sendFile(path.join(__dirname, '../static', 'index.html'));
-    loginController.loginToAdmin(req,res);
-    console.log(req.url);
-});*/
-
-
 
 module.exports = router; // Exportataan router

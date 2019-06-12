@@ -1,4 +1,4 @@
-// MONGOOSEN MÄÄRITTELYT PALAUTELOMAKE-SOVELLUKSESSA
+// MONGOOSEN MÄÄRITTELYT TIEDOTESOVELLUKSESSA
 
 // Otetaan mongoose käyttöön ja luodaan schema
 const mongoose = require('mongoose');

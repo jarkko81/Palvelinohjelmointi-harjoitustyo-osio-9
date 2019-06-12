@@ -2,11 +2,13 @@
 
 doctype html
 head
-    title='Palvelinohjelmointi - Osio 6 - Lähetä tiketti'
+    title='Palvelinohjelmointi - Osio 9 - Lähetä tiketti'
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
     link(rel='stylesheet', href='styles.css') 
 body.container
+
     div(id='menu')
+
         // Logo liitetty navigaatioon
         img(src='../static/images/lappari.jpg') 
         p='Ylläpito'
@@ -20,10 +22,12 @@ body.container
             p
             a(href='/yhteystiedot') Yhteystiedot
             
-    h3='Lähetä tiketti'
+    h1='Lähetä tiketti'
     p='Lähetä tiketti ylläpidolle. Otamme sen työn alle mahdollisimman pian.' 
     br
+
     form#form(action='/', method='POST')
+        
         div.form-group
             label
                 b Nimi
@@ -46,8 +50,6 @@ body.container
             textarea.form-control(name="message", cols="30", rows="10" required)
             
             input.form-control(type='hidden', name='staff' value='Ei nimetty')
-            
-            //input.form-control(type='text', name='date_added' value=date_added) Tämä jätetään todennäköisesti pois!
            
             p
                 i Kaikki kentät ovat pakollisia!

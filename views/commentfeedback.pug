@@ -1,10 +1,11 @@
-// PALAUTELOMAKE-SOVELLUKSEN PUHELIMIEN MUOKKAUSSIVU
+// TIKETTISOVELLUKSEN TIKETIN MUOKKAUSSIVU
 
 doctype html
 head
-    title='Palvelinohjelmointi - Osio 6 - Kommentoi tikettiä'
+    title='Palvelinohjelmointi - Osio 9 - Kommentoi tikettiä'
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
     link(rel='stylesheet', href='../styles.css') 
+
 body.container
 
     div(id='menu')
@@ -50,12 +51,6 @@ body.container
             p
                 b='Käsittelijä'
             p=staff
-
-            p
-                b='Viimeksi päivitetty'
-            p=date_added
-            //input.form-control(type='number', name='price' value=price)
-            //button.btn-btn-primary(type='submit') Tallenna
     
     form#form(action='/kommentoi/'+feedbackId, method='POST')
         div.form-group
@@ -93,10 +88,7 @@ body.container
                 input(type='radio', class='radioSpans', id='option3', value='Jussi', name='staff')
                 span  Jussi
             br
-  
-            
-         
-            
+
             br
             button.btn-btn-primary(type='submit') Tallenna
             br

@@ -1,4 +1,4 @@
-// MONGOOSEN MÄÄRITTELYT PALAUTELOMAKE-SOVELLUKSESSA
+// MONGOOSEN MÄÄRITTELYT TIKETTISOVELLUKSESSA
 
 // Otetaan mongoose käyttöön ja luodaan schema
 const mongoose = require('mongoose');
@@ -12,10 +12,7 @@ const feedbackSchema = new Schema({
     message: String,
     comment: String,
     status: String,
-    staff: String,
-    //date_added: Date
-    //status2: String,
-    //status3: String
+    staff: String
     });
 
 // Luodaan tietokanta Feedback
