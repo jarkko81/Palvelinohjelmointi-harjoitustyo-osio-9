@@ -1,0 +1,54 @@
+// TIKETTISOVELLUKSEN KAUTTA LÄHETETYT PALAUTTEET
+
+doctype html
+html
+    head
+        title='Palvelinohjelmointi - Osio 6 - Tiedotteet'
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+        // Oma CSS linkitetty harjoitukseen:
+        link(rel='stylesheet', href='styles.css') 
+    body.container
+        div(id='menu')
+            // Logo liitetty navigaatioon
+            img(src='../static/images/lappari.jpg')
+            p='Ylläpito'
+            div(class='menuitem')
+                p
+                a(href='/') Tiketit
+            div(class='menuitem')
+                p
+                a(href='/tiedotteet') Tiedotteet
+            div(class='menuitem')
+                p
+                a(href='/yhteystiedot') Yhteystiedot
+
+        h1='Tiedotteet'
+        p='Uusimmat tiedotteet ylläpidolta.'
+        p
+            a(href='/luotiedote')  Luo uusi tiedote
+        
+        each bulletin in bulletins
+            
+            // Näytetään sivulla vaan osa tiedoista. Linkkiä klikkaamalla näkee täydet tiedot.
+            div(id='tiketti')
+                div(id='otsikko')
+                    //div(class='tiketit')
+                ="Toimittaja: " 
+                br
+                =bulletin.editor
+                p
+                ='Otsikko: ' 
+                br 
+                =bulletin.subject
+                p
+                ='Artikkeli: ' 
+                br 
+                =bulletin.article
+                p
+                ='Artikkelien muokkaus ja poisto: '
+                br
+                a(href='/muokkaa/' + bulletin._id) Muokkaa artikkelia
+                br
+                a(href='/poisto/' + bulletin._id) Poista artikkeli
+        
+        a(href='/luotiedote')  Luo uusi tiedote

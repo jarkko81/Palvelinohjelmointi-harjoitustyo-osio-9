@@ -1,0 +1,73 @@
+/*
+
+TIKETTISOVELLUKSEN CSS
+
+*/
+html,body
+{
+    color:#333333;
+}
+
+
+p
+{
+    margin:5px;
+    padding:5px; 
+}
+
+#menu
+{
+    background-color: #C4C4E3;
+    width: 100%;
+    height: 70px;
+    display:flex;
+    font-size:20pt;
+    font-weight:bold;
+}
+
+.menuitem
+{
+    color: #ffffff;
+    margin-left:10px;
+    margin-right:50px;
+    text-decoration: none;
+    font-size:14pt;
+    font-weight:bold;
+}
+
+a, a:visited
+{
+    color:#007BFF;
+}
+/*.menuitem, a:hover
+{
+    color: #007BFF;
+    margin-left:10px;
+    margin-right:50px;
+    text-decoration: none;
+}*/
+
+#tiketti
+{
+    background-color:#C4C4E3;
+    width:50%;
+    height:100%;
+    margin:20px;
+    padding:20px;
+}
+
+#otsikko
+{
+    background-color:#EAE8E8;
+    width:50%;
+    height:100%;
+    
+}
+
+#tiedot
+{
+    background-color:#EAE8E8;
+    width:50%;
+    height:100%;
+       
+}

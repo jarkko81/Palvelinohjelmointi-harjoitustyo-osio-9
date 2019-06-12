@@ -1,0 +1,47 @@
+// TIKETTISOVELLUKSEN ETUSIVU
+
+doctype html
+head
+    title='Palvelinohjelmointi - Osio 6 - Luo tiedote'
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+    link(rel='stylesheet', href='../styles.css') 
+body.container
+
+    div(id='menu')
+        // Logo liitetty navigaatioon
+        img(src='../static/images/lappari.jpg')
+        p='Ylläpito'
+        div(class='menuitem')
+            p
+            a(href='/') Tiketit
+        div(class='menuitem')
+            p
+            a(href='/tiedotteet') Tiedotteet
+        div(class='menuitem')
+            p
+            a(href='/yhteystiedot') Yhteystiedot
+
+    h3='Kirjoita tiedote'
+    p='Luo tiedote ylläpidollisista aiheista.'
+    br
+    form#form(action='/luotiedote', method='POST')
+        div.form-group
+            label
+                b Toimittaja
+            input.form-control(type='text', name='editor' required)
+            
+            label
+                b Otsikko
+            input.form-control(type='text', name='subject' required)
+            
+            label
+                b Artikkeli
+            
+            textarea.form-control(name="article", cols="30", rows="10" required)
+           
+            p
+                i Kaikki kentät ovat pakollisia!
+            button.btn-btn-primary(type='submit') Lähetä
+    br
+    a(href='/tiedotteet') 
+        b Kaikki tiedotteet

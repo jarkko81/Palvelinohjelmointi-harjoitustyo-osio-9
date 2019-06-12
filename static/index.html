@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Author: Jarkko Nieminen 5.6.2019 -->
+    <!-- Palvelinohjelmointi: nodejs-harjoitus5 -->
+    <!-- Lomakkeen HTML-koodi -->
+
+    <!-- Käytetään bootstrapin tarjoamaa teemaa tässä testitiedostossa niin saadaan tyylikkäämpi UI tähän testiformiin -->
+    <link rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous'>
+	<link rel="stylesheet" href="styles.css">
+	<title>Palvelinohjelmointi - Osio 6 - Yhteystiedot</title>
+
+</head>
+
+<body>
+    <!-- Bootstrapin container -->
+    <div class="container">
+	
+	<!-- Sivu on luotu sendFile-metodilla. Jostain syystä CSS ei asetu kohdilleen (navigaatio ei näy oikein) -->
+	<div id="menu">
+		<!-- Logo liitetty navigaatioon -->
+        <img src='../static/images/lappari.jpg' /> Ylläpito
+		<div class="menuitem"><a href="/">Tiketit</a></div>
+		<div class="menuitem"><a href="../tiedotteet">Tiedotteet</a></div>
+		<div class="menuitem"><a href="yhteystiedot">Yhteystiedot</a></div>
+	</div>
+        <!-- Määritellään form, jonka HTTP-metodi on lähettää POST-protokollalla tietoa -->
+        <h1>Yhteystiedot</h1>
+		
+		<p>Ylläpitäjä: Jarkko Nieminen</p>
+		<p><a href="mailto:bjani003@edu.xamk.fi">Sähköposti: bjani003@edu.xamk.fi</a></p>
+    </div>
+
+    
+</body>
+</html>

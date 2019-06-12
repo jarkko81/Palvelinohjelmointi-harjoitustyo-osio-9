@@ -1,0 +1,39 @@
+// PALAUTELOMAKE-SOVELLUKSEN PUHELIMIEN MUOKKAUSSIVU
+
+doctype html
+head
+    title='Palvelinohjelmointi - Osio 6 - Päivitä tiedotetta'
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+    link(rel='stylesheet', href='../styles.css') 
+body.container
+    div(id='menu')
+        // Logo liitetty navigaatioon
+        img(src='../static/images/lappari.jpg')
+        p='Ylläpito'
+        div(class='menuitem')
+            p
+            a(href='/') Tiketit
+        div(class='menuitem')
+            p
+            a(href='/tiedotteet') Tiedotteet
+        div(class='menuitem')
+            p
+            a(href='/yhteystiedot') Yhteystiedot
+
+    h3='Päivitä tiedotettta'
+    p='Päivitä tiedotetetta'
+    
+    form#form(action='/muokkaa/'+bulletinId, method='POST')
+        div.form-group
+            label='Toimittaja'
+            input.form-control(type='text', name='editor' value=editor)
+            label='Otsikko'
+            input.form-control(type='text', name='subject' value=subject)
+            label='Artikkeli'
+            // Textareaan pitää tietokannasta haettu arvo syöttää eri tavalla kuin tavallisen tekstikenttään yllä.
+            textarea.form-control(name="article", cols="30", rows="10")
+                =article 
+            //input.form-control(type='number', name='price' value=price)
+            button.btn-btn-primary(type='submit') Tallenna
+            br
+            a(href='/tiedotteet') Palaa takaisin tallentamatta

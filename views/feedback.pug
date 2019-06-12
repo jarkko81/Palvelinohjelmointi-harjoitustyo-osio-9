@@ -1,0 +1,74 @@
+// TIKETTISOVELLUKSEN KAUTTA LÄHETETYT PALAUTTEET
+
+doctype html
+html
+    head
+        title='Palvelinohjelmointi - Osio 6 - Tiketit'
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+        // Oma CSS linkitetty harjoitukseen:
+        link(rel='stylesheet', href='../styles.css') 
+    body.container
+        div(id='menu')
+            // Logo liitetty navigaatioon
+            img(src='../static/images/lappari.jpg')
+            p='Ylläpito'
+            div(class='menuitem')
+                p
+                a(href='/') Tiketit
+            div(class='menuitem')
+                p
+                a(href='/tiedotteet') Tiedotteet
+            div(class='menuitem')
+                p
+                a(href='/yhteystiedot') Yhteystiedot
+
+        h1='Kaikki tiketit:'
+        p='Tällä sivulla näet lähetetyt tiketit. Klikkaamalla Näytä kaikki tiedot linkkiä pääsee näkemään tiketin kaikki tiedot ja kommentoimaan tikettiä.'
+        
+        each feedback in messages 
+            
+            // Näytetään sivulla vaan osa tiedoista. Linkkiä klikkaamalla näkee täydet tiedot.
+            // Olen luonut sivulle oman CSS:n, jonka kautta näytetään osa sivun tyyleistä
+            // Alla on merkitty div, jota alla oleva koodi käyttää
+            div(id='tiketti')
+                div(id='otsikko')
+                    //div(class='tiketit')
+                ="Lähettäjä: " 
+                br
+                =feedback.name
+                p
+                ='Aihe: ' 
+                br 
+                =feedback.title
+                p
+                ='Työn tilanne: ' 
+                br 
+                =feedback.status
+                p
+                ='Käsittelijä: ' 
+                br 
+                =feedback.staff 
+                p
+                ='Tikettien käsittely: ' 
+                br
+                a(href='/kommentoi/' + feedback._id) Näytä kaikki tiedot
+                br
+                a(href='/poista/' + feedback._id) Poista
+
+                //div(id='tiedot')
+                //=feedback.name 
+                //=feedback.email 
+                //=feedback.title 
+                //=feedback.message 
+                //=feedback.comment 
+                //=feedback.status 
+                //=feedback.staff 
+                //=feedback.date_added
+                //a(href='/kommentoi/' + feedback._id) Kommentoi tikettiä |
+                //br
+                //a(href='/poista/' + feedback._id)  Poista tiketti
+            //br
+            //a(href='/kommentoi/' + feedback._id) Kommentoi tikettiä |
+            //a(href='/poista/' + feedback._id)  Poista tiketti
+        
+        a(href='/')  Etusivulle
